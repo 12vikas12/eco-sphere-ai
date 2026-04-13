@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistics – EcoSphere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+      </div>
+      <span>EcoSphere</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Detect</a>
+      <a href="centers.html" class="nav-link">Centers</a>
+      <a href="stats.html" class="nav-link active">Stats</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header fade-in">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Global Statistics
+      </h1>
+      <p>Track the impact of our community's recycling efforts and discover trends in waste management.</p>
+    </div>
+
+    <div id="stats-cards" class="stats-cards fade-in"></div>
+
+    <div class="charts-grid fade-in">
+      <div class="card chart-card">
+        <h3 class="card-title">Popular Waste Types</h3>
+        <p class="card-subtitle">Distribution of detected materials</p>
+        <canvas id="pie-chart" height="300"></canvas>
+        <div id="pie-legend" class="pie-legend"></div>
+      </div>
+      <div class="card chart-card">
+        <h3 class="card-title">Detection Frequency</h3>
+        <p class="card-subtitle">Total scans by material type</p>
+        <canvas id="bar-chart" height="300"></canvas>
+      </div>
+    </div>
+
+    <div class="price-table-section fade-in">
+      <div class="card">
+        <h3 class="card-title">Recycling Price Guide</h3>
+        <p class="card-subtitle">Estimated earnings per kilogram by waste type</p>
+        <div class="price-table">
+          <div class="price-row price-header">
+            <span>Waste Type</span>
+            <span>Price/kg</span>
+            <span>Value Rating</span>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #F5C5B8">E-Waste</span>
+            <span class="price">₹50</span>
+            <div class="value-bar"><div style="width: 100%; background: #F5C5B8"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #D4C5F5">Metal</span>
+            <span class="price">₹25</span>
+            <div class="value-bar"><div style="width: 50%; background: #D4C5F5"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #F5B8E6">Textile</span>
+            <span class="price">₹12</span>
+            <div class="value-bar"><div style="width: 24%; background: #F5B8E6"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #B8D4F5">Plastic</span>
+            <span class="price">₹10</span>
+            <div class="value-bar"><div style="width: 20%; background: #B8D4F5"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #F5E6B8">Paper</span>
+            <span class="price">₹8</span>
+            <div class="value-bar"><div style="width: 16%; background: #F5E6B8"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #C5C5F5">Rubber</span>
+            <span class="price">₹7</span>
+            <div class="value-bar"><div style="width: 14%; background: #C5C5F5"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #F5D4B8">Cardboard</span>
+            <span class="price">₹6</span>
+            <div class="value-bar"><div style="width: 12%; background: #F5D4B8"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #B8F5D4">Glass</span>
+            <span class="price">₹5</span>
+            <div class="value-bar"><div style="width: 10%; background: #B8F5D4"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #F5D8B8">Wood</span>
+            <span class="price">₹4</span>
+            <div class="value-bar"><div style="width: 8%; background: #F5D8B8"></div></div>
+          </div>
+          <div class="price-row">
+            <span class="waste-dot" style="--dot-color: #C5F5B8">Organic</span>
+            <span class="price">₹3</span>
+            <div class="value-bar"><div style="width: 6%; background: #C5F5B8"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    loadStats();
+  </script>
+</body>
+</html>
